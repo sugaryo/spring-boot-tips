@@ -1,0 +1,3 @@
+! application.properties.sample
+! このファイルを `application.properties` にリネームし、任意の設定に書き換えて下さい。
+server.port=8080

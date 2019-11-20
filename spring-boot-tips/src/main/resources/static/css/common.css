@@ -1,0 +1,12 @@
+div.border,
+form {
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	margin: 5px;
+	padding: 10px;
+}
+
+textarea {
+	width: 100%;
+}
