@@ -33,8 +33,9 @@
  * 	<ul>
  * 		<li>transact.usecase
  * 		<li>transact.service
- * 		<li>transact.dao        // DAOを使用する場合。
- * 		<li>transact.repository // SpringDataJPAを使用する場合。
+ * 		<li>transact.dao        // Dao/DaoImplとか好きな人はここに。
+ * 		<li>transact.entity     // SpringDataJPAでEntity作る場合はここに。
+ * 		<li>transact.repository // SpringDataJPAでRepository作る場合はここに。
  * 	</ul>
  * 	</ul>
  * </p>
