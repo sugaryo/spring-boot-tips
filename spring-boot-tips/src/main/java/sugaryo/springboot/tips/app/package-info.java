@@ -24,7 +24,6 @@
  * 	<li>【ビジネスロジックレイヤ】
  * 	<ul>
  * 		<li>module.core
- * 		<li>module.api
  * 		<li><b> -- (スレッド境界) -- </b>
  * 		<li>module.thread
  * 	</ul>
