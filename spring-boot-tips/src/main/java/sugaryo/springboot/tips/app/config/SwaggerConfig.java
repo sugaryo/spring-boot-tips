@@ -1,5 +1,6 @@
 package sugaryo.springboot.tips.app.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,6 +15,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfig {
 	
+	@Autowired
+	ConfigSet config;
+	
 	@Bean
 	public Docket doclet() {
 		return new Docket( DocumentationType.SWAGGER_2 )
@@ -21,21 +25,21 @@ public class SwaggerConfig {
 				.apis( RequestHandlerSelectors.any() )
 				.paths( PathSelectors.any() )
 				.build()
-				.apiInfo( Api.info() );
+				.apiInfo( as( this.config.api ) );
 	}
 	
-	private static class Api {
-		
-		private static ApiInfo info() {
-			return new ApiInfoBuilder()
-					.title( "sugaryo api / SpringBoot" )
-					.description( "swagger demo." )
-					.version( "0.0.1" )
-					.contact( new Contact( "sugaryo", "https://github.com/sugaryo", "ryo.sugawara@gmail.com" ) )
-					.license( "sample license." )
-					.licenseUrl( "sample license url." )
-					.termsOfServiceUrl( "" )
-					.build();
-		}
+	private static ApiInfo as( ApiConfig api ) {
+		return new ApiInfoBuilder()
+				.title( api.title )
+				.description( api.description )
+				.version( api.version )
+				.contact( new Contact(
+						api.contact.name,
+						api.contact.url,
+						api.contact.email ) )
+				.license( api.lisence.name )
+				.licenseUrl( api.lisence.url )
+				.termsOfServiceUrl( api.termsOfService.url )
+				.build();
 	}
 }
